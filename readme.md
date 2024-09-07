@@ -1,7 +1,8 @@
 # Feature binding task
-Last edit: 08/02/2024
+Last edit: 09/07/2024
 
 ## Edit history
+- 09/07/2024 by Alex He - finalized the task design and experiment setup
 - 08/02/2024 by Alex He - created initial draft of the task
 
 ## Description
