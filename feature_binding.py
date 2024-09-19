@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.2.1a1),
-    on Tue Sep 17 17:06:45 2024
+    on Wed Sep 18 20:58:54 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -636,10 +636,12 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         actionType='Start Only'
     )
     # Run 'Begin Experiment' code from condition_setup
+    import glob
+    
     # Set up condition arrays for the experiment
     rng = np.random.default_rng()
-    image_filenames = rng.permutation(['resource/' + str(x).zfill(3) + '.bmp' for x in range(1, 259)])
-    image_dot_fn = 'resource/image_dot.png'  # dot image for location trials
+    session_str = str(int(expInfo['session']))
+    image_filenames = glob.glob('resource/image_sets/' + session_str + '/' + session_str + '_*.jpg')
     
     conditions = ['same', 'different']
     n_conditions = len(conditions)  # 2 different conditions in total
@@ -649,8 +651,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                  (-0.2, -0.2), (0, -0.2), (0.2, -0.2)]                
     
     # Practice trials
-    n_trials_per_condition = 3  # each condition is presented 3 times during practice
-    n_trials_practice = n_conditions * n_trials_per_condition  # 6 trials during practice
+    n_trials_per_condition = 2  # each condition is presented 2 times during practice
+    n_trials_practice = n_conditions * n_trials_per_condition  # 4 trials during practice
     n_objects_practice = n_trials_practice * n_objects_per_trial
     # trial types
     trial_type_practice_list = rng.permutation(conditions * n_trials_per_condition)
@@ -674,6 +676,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # package the images into nested lists of 3 objects
     image_fn_list = [image_fn[i * n_objects_per_trial:(i + 1) * n_objects_per_trial] for i in range(n_trials)]
     
+    assert len(image_filenames) == 252, "Incorrect number of picture stimuli loaded for this session."
+    assert len(image_filenames) / n_objects_per_trial == (n_trials_practice + n_trials), "Incorrect number of trials for this session."
+    
     
     # --- Initialize components for Routine "instruct_1" ---
     text_instruct_intro_1 = visual.TextStim(win=win, name='text_instruct_intro_1',
@@ -687,7 +692,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "instruct_2" ---
     text_instruct_intro_2 = visual.TextStim(win=win, name='text_instruct_intro_2',
-        text='INSTRUCTIONS\n\nYou will see 3 objects appearing one at a time followed by an 8 second delay. You need to remember both the identity of the objects and their locations.\n\nAfter the delay, you will see a test object in one of the grid squares, and you need to decide whether this object is in the right location. What right means is that the test object is in the same square as it was during the 3-object sequence before the delay.\n\n\nPress the spacebar to continue',
+        text='INSTRUCTIONS\n\nYou will see 3 objects appearing one at a time followed by an 8-second delay. You need to remember both the identity of the objects and their locations. During the delay, you need to look at the center of the screen.\n\nAfter the delay, you will see a test object in one of the grid squares, and you need to decide whether this object is in the same location. In other words, whether the test object is in the same square as it was during the 3-object sequence before the delay.\n\n\nPress the spacebar to continue',
         font='Arial',
         units='norm', pos=(0, 0), draggable=False, height=0.1, wrapWidth=1.8, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
@@ -697,7 +702,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "instruct_3" ---
     text_response = visual.TextStim(win=win, name='text_response',
-        text="How to Respond to a Test Object:\n\nIf the test object is in the right location, press the 'Y' key to indicate that YES, the test object is in the same square as it was in the 3-object sequence.\n\nIf the test object is NOT in the right location, press the 'N' key to indicate that NO, the test object is NOT in the same square as it was in the 3-object sequence.",
+        text="How to Respond to a Test Object:\n\nIf the test object is in the same location, press the 'Y' key to indicate that YES, the test object is in the same square as it was in the 3-object sequence.\n\nIf the test object is NOT in the same location, press the 'N' key to indicate that NO, the test object is NOT in the same square as it was in the 3-object sequence.",
         font='Arial',
         units='norm', pos=(0, 0.5), draggable=False, height=0.08, wrapWidth=1.8, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
@@ -722,7 +727,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "instruct_review" ---
     text_instruct_review = visual.TextStim(win=win, name='text_instruct_review',
-        text="REVIEW\n\nIn every trial, you will see 3 objects followed by a delay. Then, a test object appears, and you need to decide whether this object is in the right location.\n\nIf the test object is in the same square as before, press the 'Y' key. If the test object is NOT in the same square as before, press the 'N' key. Please respond as quickly and accurately as possible.\n\n\nPress the spacebar to start practice trials",
+        text="REVIEW\n\nIn every trial, you will see 3 objects followed by a delay. During the delay, please keep looking at the fixation cross at the center of the screen. Then, a test object appears, and you need to decide whether this object is in the same location.\n\nIf the test object is in the same square as before, press the 'Y' key. If the test object is NOT in the same square as before, press the 'N' key. Please respond as quickly and accurately as possible.\n\n\nPress the spacebar to start practice trials",
         font='Arial',
         units='norm', pos=(0, 0), draggable=False, height=0.1, wrapWidth=1.8, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
@@ -732,7 +737,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "instruct_practice_repeat" ---
     test_practice_repeat = visual.TextStim(win=win, name='test_practice_repeat',
-        text="We will repeat the practice trials one more time.\n\nRemember: You need to pay attention to both the identity of the objects and their locations during the 3-object sequence.\n\nWhen responding to the test object, press the 'Y' key to indicate that YES you recognize the object to be in the right location, and press the 'N' key if you don't.\n\nPlease respond as quickly and accurately as possible.\n\n\nPress the spacebar to start practice trials",
+        text="We will repeat the practice trials one more time.\n\nRemember: You need to pay attention to both the identity of the objects and their locations during the 3-object sequence.\n\nWhen responding to the test object, press the 'Y' key to indicate that YES you recognize the object to be in the same location, and press the 'N' key if you don't.\n\nPlease respond as quickly and accurately as possible.\n\n\nPress the spacebar to start practice trials",
         font='Arial',
         units='norm', pos=(0, 0), draggable=False, height=0.1, wrapWidth=1.8, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
@@ -887,7 +892,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "instruct_begin" ---
     text_instruct_begin = visual.TextStim(win=win, name='text_instruct_begin',
-        text="Great job! We will now begin the experiment.\n\nAs a reminder, the trials require you to remember the objects and their locations, and you need to respond to the test objects after the delay.\n\nPress the 'Y' and 'N' keys accordingly depending on whether you think the object and its location are the same as shown in the 3-object sequence each time. Please respond as quickly and accurately as possible.\n\nYou will no longer receive feedback on your responses.\n\n\nPress the spacebar to start",
+        text="Great job! We will now begin the experiment.\n\nAs a reminder, try to keep looking at the center of the screen during the delay, and you need to respond to the test objects after the delay.\n\nPress the 'Y' and 'N' keys accordingly depending on whether you think the object and its location are the same as shown in the 3-object sequence each time. Please respond as quickly and accurately as possible.\n\nYou will no longer receive feedback on your responses.\n\n\nPress the spacebar to start",
         font='Arial',
         units='norm', pos=(0, 0), draggable=False, height=0.1, wrapWidth=1.8, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
@@ -2517,8 +2522,19 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             practice_setup.tStop = globalClock.getTime(format='float')
             practice_setup.tStopRefresh = tThisFlipGlobal
             # Run 'End Routine' code from setup_practice_trial
-            thisExp.addData('trial_type', trial_type) # adding Trial Type to .csv file
-            thisExp.addData('correct_response', correct_resp) # adding Correct Response to .csv file
+            thisExp.addData('image_fn_1', image_fn[0])  # adding Encoding Image Names to .csv file
+            thisExp.addData('image_fn_2', image_fn[1])
+            thisExp.addData('image_fn_3', image_fn[2])
+            
+            thisExp.addData('image_loc_1', image_loc[0])  # adding Encoding Image Locations to .csv file
+            thisExp.addData('image_loc_2', image_loc[1])
+            thisExp.addData('image_loc_3', image_loc[2])
+            
+            thisExp.addData('trial_type', trial_type)  # adding Trial Type to .csv file
+            
+            thisExp.addData('image_test_fn', image_test_fn)  # adding Test Image Name to .csv file
+            thisExp.addData('image_test_loc', image_test_loc)  # adding Test Image Name to .csv file
+            thisExp.addData('correct_response', correct_resp)  # adding Correct Response to .csv file
             
             # the Routine "practice_setup" was not non-slip safe, so reset the non-slip timer
             routineTimer.reset()
@@ -3821,8 +3837,19 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         trial_setup.tStop = globalClock.getTime(format='float')
         trial_setup.tStopRefresh = tThisFlipGlobal
         # Run 'End Routine' code from setup_image_trial
-        thisExp.addData('trial_type', trial_type) # adding Trial Type to .csv file
-        thisExp.addData('correct_response', correct_resp) # adding Correct Response to .csv file
+        thisExp.addData('image_fn_1', image_fn[0])  # adding Encoding Image Names to .csv file
+        thisExp.addData('image_fn_2', image_fn[1])
+        thisExp.addData('image_fn_3', image_fn[2])
+        
+        thisExp.addData('image_loc_1', image_loc[0])  # adding Encoding Image Locations to .csv file
+        thisExp.addData('image_loc_2', image_loc[1])
+        thisExp.addData('image_loc_3', image_loc[2])
+        
+        thisExp.addData('trial_type', trial_type)  # adding Trial Type to .csv file
+        
+        thisExp.addData('image_test_fn', image_test_fn)  # adding Test Image Name to .csv file
+        thisExp.addData('image_test_loc', image_test_loc)  # adding Test Image Name to .csv file
+        thisExp.addData('correct_response', correct_resp)  # adding Correct Response to .csv file
         
         # the Routine "trial_setup" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
