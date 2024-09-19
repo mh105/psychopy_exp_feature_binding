@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.2.1a1),
-    on Wed Sep 18 20:58:54 2024
+    on Thu Sep 19 10:22:39 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -711,7 +711,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     image_diagram = visual.ImageStim(
         win=win,
         name='image_diagram', 
-        image='resource/object_location_trial_diagram.tif', mask=None, anchor='center',
+        image='resource/trial_diagram.tif', mask=None, anchor='center',
         ori=0.0, pos=(0, -0.2), draggable=False, size=(1.142857, 0.5),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,

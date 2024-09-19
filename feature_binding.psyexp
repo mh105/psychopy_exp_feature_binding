@@ -1798,7 +1798,7 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
         <Param val="False" valType="bool" updates="constant" name="flipVert"/>
-        <Param val="resource/object_location_trial_diagram.tif" valType="file" updates="constant" name="image"/>
+        <Param val="resource/trial_diagram.tif" valType="file" updates="constant" name="image"/>
         <Param val="nearest" valType="str" updates="constant" name="interpolate"/>
         <Param val="" valType="str" updates="constant" name="mask"/>
         <Param val="image_diagram" valType="code" updates="None" name="name"/>
