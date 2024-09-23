@@ -1,7 +1,8 @@
 # Feature binding task
-Last edit: 09/18/2024
+Last edit: 09/23/2024
 
 ## Edit history
+- 09/23/2024 by Alex He - upgraded to run on PsychoPy 2024.2.2
 - 09/18/2024 by Alex He - updated image stimuli sets to allow five repeated test sessions
 - 09/07/2024 by Alex He - finalized the task design and experiment setup
 - 08/02/2024 by Alex He - created initial draft of the task
