@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.2.2a1),
-    on Wed Sep 25 11:41:48 2024
+    on Fri Sep 27 11:09:28 2024
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -649,7 +649,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     n_objects_per_trial = 3  # each trial presents 3 objects in a sequence
     locations = [(-0.2, 0.2), (0, 0.2), (0.2, 0.2),
                  (-0.2, 0),             (0.2, 0),
-                 (-0.2, -0.2), (0, -0.2), (0.2, -0.2)]                
+                 (-0.2, -0.2), (0, -0.2), (0.2, -0.2)]
     
     # Practice trials
     n_trials_per_condition = 2  # each condition is presented 2 times during practice
@@ -673,12 +673,13 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # image locations
     image_loc_list = [rng.permutation(locations) for _ in range(n_trials)]
     # image filenames - skipping images already used for practice trials
-    image_fn = image_filenames[n_objects_practice + 1:n_objects_practice + 1 + n_objects]
+    image_fn = image_filenames[n_objects_practice:n_objects_practice + n_objects]
     # package the images into nested lists of 3 objects
     image_fn_list = [image_fn[i * n_objects_per_trial:(i + 1) * n_objects_per_trial] for i in range(n_trials)]
     
     assert len(image_filenames) == 252, "Incorrect number of picture stimuli loaded for this session."
     assert len(image_filenames) / n_objects_per_trial == (n_trials_practice + n_trials), "Incorrect number of trials for this session."
+    assert np.all(np.array([len(x) for x in image_fn_list]) == n_objects_per_trial), "Incorrect number of stimuli for some trials."
     
     
     # --- Initialize components for Routine "instruct_1" ---
