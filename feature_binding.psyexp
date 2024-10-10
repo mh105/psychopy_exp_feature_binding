@@ -119,13 +119,13 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="REVIEW&amp;#10;&amp;#10;In every trial, you will see 3 objects followed by a delay. During the delay, please keep looking at the fixation cross at the center of the screen. Then, a test object appears, and you need to decide whether this object is in the same location.&amp;#10;&amp;#10;If the test object is in the same square as before, press the 'Y' key. If the test object is NOT in the same square as before, press the 'N' key. Please respond as quickly and accurately as possible.&amp;#10;&amp;#10;&amp;#10;Press the spacebar to start practice trials" valType="str" updates="constant" name="text"/>
+        <Param val="REVIEW&amp;#10;&amp;#10;In every trial, you will see 3 objects followed by a delay. During the delay, please keep looking at the fixation cross at the center of the screen. Then, a test object appears, and you need to decide whether this object is in the same location.&amp;#10;&amp;#10;If the test object is in the same square as before, press the Green key. If the test object is NOT in the same square as before, press the Red key. Please respond as quickly and accurately as possible.&amp;#10;&amp;#10;&amp;#10;Press the green key to start practice trials" valType="str" updates="constant" name="text"/>
         <Param val="norm" valType="str" updates="None" name="units"/>
         <Param val="" valType="code" updates="None" name="validator"/>
         <Param val="1.8" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
       <KeyboardComponent name="key_instruct_review" plugin="None">
-        <Param val="'space'" valType="list" updates="constant" name="allowedKeys"/>
+        <Param val="'1'" valType="list" updates="constant" name="allowedKeys"/>
         <Param val="" valType="str" updates="constant" name="correctAns"/>
         <Param val="" valType="str" updates="None" name="deviceLabel"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
@@ -144,6 +144,24 @@
         <Param val="False" valType="bool" updates="constant" name="storeCorrect"/>
         <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
       </KeyboardComponent>
+      <SoundComponent name="read_instruct_review" plugin="None">
+        <Param val="" valType="str" updates="None" name="deviceLabel"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="True" valType="bool" updates="constant" name="hamming"/>
+        <Param val="read_instruct_review" valType="code" updates="None" name="name"/>
+        <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="resource/instruct_review.wav" valType="str" updates="set every repeat" name="sound"/>
+        <Param val="-1" valType="code" updates="None" name="speakerIndex"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.8" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="constant" name="stopWithRoutine"/>
+        <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
+        <Param val="1" valType="num" updates="constant" name="volume"/>
+      </SoundComponent>
     </Routine>
     <Routine name="trial">
       <RoutineSettingsComponent name="trial" plugin="None">
@@ -567,7 +585,7 @@
         <Param val="" valType="code" updates="None" name="validator"/>
       </ImageComponent>
       <KeyboardComponent name="key_response_test" plugin="None">
-        <Param val="'y', 'n'" valType="list" updates="constant" name="allowedKeys"/>
+        <Param val="'1', '2'" valType="list" updates="constant" name="allowedKeys"/>
         <Param val="" valType="str" updates="constant" name="correctAns"/>
         <Param val="" valType="str" updates="None" name="deviceLabel"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
@@ -620,33 +638,6 @@
         <Param val="False" valType="bool" updates="None" name="disabled"/>
         <Param val="trigger_trial" valType="code" updates="None" name="name"/>
       </CodeComponent>
-      <TextComponent name="text_debug_only" plugin="None">
-        <Param val="black" valType="color" updates="constant" name="color"/>
-        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
-        <Param val="1" valType="num" updates="constant" name="contrast"/>
-        <Param val="False" valType="bool" updates="None" name="disabled"/>
-        <Param val="False" valType="code" updates="constant" name="draggable"/>
-        <Param val="" valType="code" updates="None" name="durationEstim"/>
-        <Param val="None" valType="str" updates="constant" name="flip"/>
-        <Param val="Arial" valType="str" updates="constant" name="font"/>
-        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
-        <Param val="0.05" valType="num" updates="constant" name="letterHeight"/>
-        <Param val="text_debug_only" valType="code" updates="None" name="name"/>
-        <Param val="" valType="num" updates="constant" name="opacity"/>
-        <Param val="0" valType="num" updates="constant" name="ori"/>
-        <Param val="(0, 0.9)" valType="list" updates="constant" name="pos"/>
-        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="" valType="code" updates="None" name="startEstim"/>
-        <Param val="time (s)" valType="str" updates="None" name="startType"/>
-        <Param val="1.0" valType="code" updates="None" name="startVal"/>
-        <Param val="time (s)" valType="str" updates="None" name="stopType"/>
-        <Param val="17.15" valType="code" updates="constant" name="stopVal"/>
-        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="$trial_type" valType="str" updates="set every repeat" name="text"/>
-        <Param val="norm" valType="str" updates="None" name="units"/>
-        <Param val="" valType="code" updates="None" name="validator"/>
-        <Param val="" valType="num" updates="constant" name="wrapWidth"/>
-      </TextComponent>
     </Routine>
     <Routine name="instruct_1">
       <RoutineSettingsComponent name="instruct_1" plugin="None">
@@ -687,13 +678,13 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="INSTRUCTIONS&amp;#10;&amp;#10;In this experiment you will see a grid with 9 squares. 3 objects will appear one at a time at different locations within the grid. You will be asked to look at these objects, then after a short delay you will be tested on how well you can remember them.&amp;#10;&amp;#10;&amp;#10;Press the spacebar to continue" valType="str" updates="constant" name="text"/>
+        <Param val="INSTRUCTIONS&amp;#10;&amp;#10;In this experiment you will see a grid with 9 squares. 3 objects will appear one at a time at different locations within the grid. You will be asked to look at these objects, then after a short delay you will be tested on how well you can remember them.&amp;#10;&amp;#10;&amp;#10;Press any of the white keys to continue" valType="str" updates="constant" name="text"/>
         <Param val="norm" valType="str" updates="None" name="units"/>
         <Param val="" valType="code" updates="None" name="validator"/>
         <Param val="1.8" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
       <KeyboardComponent name="key_instruct_intro_1" plugin="None">
-        <Param val="'space'" valType="list" updates="constant" name="allowedKeys"/>
+        <Param val="'3', '4', '5', '6'" valType="list" updates="constant" name="allowedKeys"/>
         <Param val="" valType="str" updates="constant" name="correctAns"/>
         <Param val="" valType="str" updates="None" name="deviceLabel"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
@@ -712,6 +703,24 @@
         <Param val="False" valType="bool" updates="constant" name="storeCorrect"/>
         <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
       </KeyboardComponent>
+      <SoundComponent name="read_instruct_intro_1" plugin="None">
+        <Param val="" valType="str" updates="None" name="deviceLabel"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="True" valType="bool" updates="constant" name="hamming"/>
+        <Param val="read_instruct_intro_1" valType="code" updates="None" name="name"/>
+        <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="resource/instruct_intro_1.wav" valType="str" updates="set every repeat" name="sound"/>
+        <Param val="-1" valType="code" updates="None" name="speakerIndex"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.8" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="constant" name="stopWithRoutine"/>
+        <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
+        <Param val="1" valType="num" updates="constant" name="volume"/>
+      </SoundComponent>
     </Routine>
     <Routine name="instruct_2">
       <RoutineSettingsComponent name="instruct_2" plugin="None">
@@ -752,13 +761,13 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="INSTRUCTIONS&amp;#10;&amp;#10;You will see 3 objects appearing one at a time followed by an 8-second delay. You need to remember both the identity of the objects and their locations. During the delay, you need to look at the center of the screen.&amp;#10;&amp;#10;After the delay, you will see a test object in one of the grid squares, and you need to decide whether this object is in the same location. In other words, whether the test object is in the same square as it was during the 3-object sequence before the delay.&amp;#10;&amp;#10;&amp;#10;Press the spacebar to continue" valType="str" updates="constant" name="text"/>
+        <Param val="INSTRUCTIONS&amp;#10;&amp;#10;You will see 3 objects appearing one at a time followed by an 8-second delay. You need to remember both the identity of the objects and their locations. During the delay, you need to look at the center of the screen.&amp;#10;&amp;#10;After the delay, you will see a test object in one of the grid squares, and you need to decide whether this object is in the same location. In other words, whether the test object is in the same square as it was during the 3-object sequence before the delay.&amp;#10;&amp;#10;&amp;#10;Press any of the white keys to continue" valType="str" updates="constant" name="text"/>
         <Param val="norm" valType="str" updates="None" name="units"/>
         <Param val="" valType="code" updates="None" name="validator"/>
         <Param val="1.8" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
       <KeyboardComponent name="key_instruct_intro_2" plugin="None">
-        <Param val="'space'" valType="list" updates="constant" name="allowedKeys"/>
+        <Param val="'3', '4', '5', '6'" valType="list" updates="constant" name="allowedKeys"/>
         <Param val="" valType="str" updates="constant" name="correctAns"/>
         <Param val="" valType="str" updates="None" name="deviceLabel"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
@@ -777,6 +786,24 @@
         <Param val="False" valType="bool" updates="constant" name="storeCorrect"/>
         <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
       </KeyboardComponent>
+      <SoundComponent name="read_instruct_intro_2" plugin="None">
+        <Param val="" valType="str" updates="None" name="deviceLabel"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="True" valType="bool" updates="constant" name="hamming"/>
+        <Param val="read_instruct_intro_2" valType="code" updates="None" name="name"/>
+        <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="resource/instruct_intro_2.wav" valType="str" updates="set every repeat" name="sound"/>
+        <Param val="-1" valType="code" updates="None" name="speakerIndex"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.8" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="constant" name="stopWithRoutine"/>
+        <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
+        <Param val="1" valType="num" updates="constant" name="volume"/>
+      </SoundComponent>
     </Routine>
     <Routine name="instruct_condition">
       <RoutineSettingsComponent name="instruct_condition" plugin="None">
@@ -917,7 +944,7 @@
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="0.2" valType="code" updates="None" name="startVal"/>
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
-        <Param val="1.6" valType="code" updates="constant" name="stopVal"/>
+        <Param val="1.8" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="constant" name="stopWithRoutine"/>
         <Param val="False" valType="bool" updates="constant" name="syncScreenRefresh"/>
         <Param val="1" valType="num" updates="constant" name="volume"/>
@@ -1028,7 +1055,7 @@
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="n" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="# Obtain trial specific variables&amp;#10;image_fn = image_fn_list[trials.thisRepN]&amp;#10;image_loc = image_loc_list[trials.thisRepN]&amp;#10;trial_type = trial_type_list[trials.thisRepN]&amp;#10;&amp;#10;# Set up filenames, location, etc.&amp;#10;if trial_type == 'same':&amp;#10;    i = rng.choice([0, 1, 2])  # select one of the three study objects&amp;#10;    image_test_fn = image_fn[i]  # show the selected object&amp;#10;    image_test_loc = image_loc[i]  # and its corresponding location&amp;#10;    correct_resp = 'y'&amp;#10;&amp;#10;elif trial_type == 'different':&amp;#10;    index = [0, 1, 2]&amp;#10;    i = rng.choice(index)  # select one of the three study objects&amp;#10;    _ = index.pop(i)  # remove the selected index from the list&amp;#10;    image_test_fn = image_fn[i]  # show the selected object&amp;#10;    image_test_loc = image_loc[rng.choice(index)]  # select from remaining locations&amp;#10;    correct_resp = 'n'&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="# Obtain trial specific variables&amp;#10;image_fn = image_fn_list[trials.thisRepN]&amp;#10;image_loc = image_loc_list[trials.thisRepN]&amp;#10;trial_type = trial_type_list[trials.thisRepN]&amp;#10;&amp;#10;# Set up filenames, location, etc.&amp;#10;if trial_type == 'same':&amp;#10;    i = rng.choice([0, 1, 2])  # select one of the three study objects&amp;#10;    image_test_fn = image_fn[i]  # show the selected object&amp;#10;    image_test_loc = image_loc[i]  # and its corresponding location&amp;#10;    correct_resp = '1'&amp;#10;&amp;#10;elif trial_type == 'different':&amp;#10;    index = [0, 1, 2]&amp;#10;    i = rng.choice(index)  # select one of the three study objects&amp;#10;    _ = index.pop(i)  # remove the selected index from the list&amp;#10;    image_test_fn = image_fn[i]  # show the selected object&amp;#10;    image_test_loc = image_loc[rng.choice(index)]  # select from remaining locations&amp;#10;    correct_resp = '2'&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Py" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
@@ -1063,7 +1090,7 @@
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="n" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="# Obtain practice trial specific variables&amp;#10;image_fn = image_fn_practice_list[practice_trials.thisRepN]&amp;#10;image_loc = image_loc_practice_list[practice_trials.thisRepN]&amp;#10;trial_type = trial_type_practice_list[practice_trials.thisRepN]&amp;#10;&amp;#10;# Set up filenames, location, etc.&amp;#10;if trial_type == 'same':&amp;#10;    i = rng.choice([0, 1, 2])  # select one of the three study objects&amp;#10;    image_test_fn = image_fn[i]  # show the selected object&amp;#10;    image_test_loc = image_loc[i]  # and its corresponding location&amp;#10;    correct_resp = 'y'&amp;#10;    &amp;#10;elif trial_type == 'different':&amp;#10;    index = [0, 1, 2]&amp;#10;    i = rng.choice(index)  # select one of the three study objects&amp;#10;    _ = index.pop(i)  # remove the selected index from the list&amp;#10;    image_test_fn = image_fn[i]  # show the selected object&amp;#10;    image_test_loc = image_loc[rng.choice(index)]  # select from remaining locations&amp;#10;    correct_resp = 'n'&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="# Obtain practice trial specific variables&amp;#10;image_fn = image_fn_practice_list[practice_trials.thisRepN]&amp;#10;image_loc = image_loc_practice_list[practice_trials.thisRepN]&amp;#10;trial_type = trial_type_practice_list[practice_trials.thisRepN]&amp;#10;&amp;#10;# Set up filenames, location, etc.&amp;#10;if trial_type == 'same':&amp;#10;    i = rng.choice([0, 1, 2])  # select one of the three study objects&amp;#10;    image_test_fn = image_fn[i]  # show the selected object&amp;#10;    image_test_loc = image_loc[i]  # and its corresponding location&amp;#10;    correct_resp = '1'&amp;#10;    &amp;#10;elif trial_type == 'different':&amp;#10;    index = [0, 1, 2]&amp;#10;    i = rng.choice(index)  # select one of the three study objects&amp;#10;    _ = index.pop(i)  # remove the selected index from the list&amp;#10;    image_test_fn = image_fn[i]  # show the selected object&amp;#10;    image_test_loc = image_loc[rng.choice(index)]  # select from remaining locations&amp;#10;    correct_resp = '2'&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Py" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
@@ -1230,6 +1257,24 @@
         <Param val="False" valType="bool" updates="constant" name="storeCorrect"/>
         <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
       </KeyboardComponent>
+      <SoundComponent name="read_checkpoint" plugin="None">
+        <Param val="" valType="str" updates="None" name="deviceLabel"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="True" valType="bool" updates="constant" name="hamming"/>
+        <Param val="read_checkpoint" valType="code" updates="None" name="name"/>
+        <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="resource/instruct_checkpoint.wav" valType="str" updates="set every repeat" name="sound"/>
+        <Param val="-1" valType="code" updates="None" name="speakerIndex"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.4" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="constant" name="stopWithRoutine"/>
+        <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
+        <Param val="1" valType="num" updates="constant" name="volume"/>
+      </SoundComponent>
       <CodeComponent name="code_checkpoint" plugin="None">
         <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
@@ -1287,13 +1332,13 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="Great job! We will now begin the experiment.&amp;#10;&amp;#10;As a reminder, try to keep looking at the center of the screen during the delay, and you need to respond to the test objects after the delay.&amp;#10;&amp;#10;Press the 'Y' and 'N' keys accordingly depending on whether you think the object and its location are the same as shown in the 3-object sequence each time. Please respond as quickly and accurately as possible.&amp;#10;&amp;#10;You will no longer receive feedback on your responses.&amp;#10;&amp;#10;&amp;#10;Press the spacebar to start" valType="str" updates="constant" name="text"/>
+        <Param val="Great job! We will now begin the experiment.&amp;#10;&amp;#10;As a reminder, try to keep looking at the center of the screen during the delay, and you need to respond to the test objects after the delay.&amp;#10;&amp;#10;Press the Green and Red keys accordingly depending on whether you think the object and its location are the same as shown in the 3-object sequence each time. Please respond as quickly and accurately as possible.&amp;#10;&amp;#10;Note that you will no longer receive feedback on your responses.&amp;#10;&amp;#10;&amp;#10;Press the green key to start the trials" valType="str" updates="constant" name="text"/>
         <Param val="norm" valType="str" updates="None" name="units"/>
         <Param val="" valType="code" updates="None" name="validator"/>
         <Param val="1.8" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
       <KeyboardComponent name="key_instruct_begin" plugin="None">
-        <Param val="'space'" valType="list" updates="constant" name="allowedKeys"/>
+        <Param val="'1'" valType="list" updates="constant" name="allowedKeys"/>
         <Param val="" valType="str" updates="constant" name="correctAns"/>
         <Param val="" valType="str" updates="None" name="deviceLabel"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
@@ -1312,6 +1357,24 @@
         <Param val="False" valType="bool" updates="constant" name="storeCorrect"/>
         <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
       </KeyboardComponent>
+      <SoundComponent name="read_instruct_begin" plugin="None">
+        <Param val="" valType="str" updates="None" name="deviceLabel"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="True" valType="bool" updates="constant" name="hamming"/>
+        <Param val="read_instruct_begin" valType="code" updates="None" name="name"/>
+        <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="resource/instruct_begin.wav" valType="str" updates="set every repeat" name="sound"/>
+        <Param val="-1" valType="code" updates="None" name="speakerIndex"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.8" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="constant" name="stopWithRoutine"/>
+        <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
+        <Param val="1" valType="num" updates="constant" name="volume"/>
+      </SoundComponent>
       <CodeComponent name="trigger_trial_block" plugin="None">
         <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
@@ -1369,13 +1432,13 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="Welcome! This task will take approximately 20 minutes.&amp;#10;&amp;#10;Before we explain the task, we need to first calibrate the eyetracking camera. Please sit in a comfortable position with your head on the chin rest. Once we begin, it is important that you stay in the same position throughout this task.&amp;#10;&amp;#10;Please take a moment to adjust the chair height, chin rest, and sitting posture. Make sure that you feel comfortable and can stay still for a while.&amp;#10;&amp;#10;&amp;#10;When you are ready, press the spacebar" valType="str" updates="constant" name="text"/>
+        <Param val="Welcome! This task will take approximately 30 minutes.&amp;#10;&amp;#10;Before we explain the task, we need to first calibrate the eyetracking camera. Please sit in a comfortable position with your head on the chin rest. Once we begin, it is important that you stay in the same position throughout this task.&amp;#10;&amp;#10;Please take a moment to adjust the chair height, chin rest, and sitting posture. Make sure that you feel comfortable and can stay still for a while.&amp;#10;&amp;#10;&amp;#10;When you are ready, press any of the white keys to begin" valType="str" updates="constant" name="text"/>
         <Param val="norm" valType="str" updates="None" name="units"/>
         <Param val="" valType="code" updates="None" name="validator"/>
         <Param val="1.8" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
       <KeyboardComponent name="key_welcome" plugin="None">
-        <Param val="'space'" valType="list" updates="constant" name="allowedKeys"/>
+        <Param val="'3', '4', '5', '6'" valType="list" updates="constant" name="allowedKeys"/>
         <Param val="" valType="str" updates="constant" name="correctAns"/>
         <Param val="" valType="str" updates="None" name="deviceLabel"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
@@ -1452,13 +1515,13 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="During the calibration, you will see a target circle moving around the screen. Please try to track it with your eyes.&amp;#10;&amp;#10;Make sure to keep looking at the circle when it stops, and follow it when it moves. It is important that you keep your head on the chin rest once this part begins.&amp;#10;&amp;#10;&amp;#10;Press the spacebar when you are ready, and our team will start the calibration for you" valType="str" updates="constant" name="text"/>
+        <Param val="During the calibration, you will see a target circle moving around the screen. Please try to track it with your eyes.&amp;#10;&amp;#10;Make sure to keep looking at the circle when it stops, and follow it when it moves. It is important that you keep your head on the chin rest once this part begins.&amp;#10;&amp;#10;&amp;#10;Press any of the white keys when you are ready, and our team will start the calibration for you" valType="str" updates="constant" name="text"/>
         <Param val="norm" valType="str" updates="None" name="units"/>
         <Param val="" valType="code" updates="None" name="validator"/>
         <Param val="1.8" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
       <KeyboardComponent name="key_et" plugin="None">
-        <Param val="'space'" valType="list" updates="constant" name="allowedKeys"/>
+        <Param val="'3', '4', '5', '6'" valType="list" updates="constant" name="allowedKeys"/>
         <Param val="" valType="str" updates="constant" name="correctAns"/>
         <Param val="" valType="str" updates="None" name="deviceLabel"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
@@ -1684,13 +1747,13 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="We will repeat the practice trials one more time.&amp;#10;&amp;#10;Remember: You need to pay attention to both the identity of the objects and their locations during the 3-object sequence.&amp;#10;&amp;#10;When responding to the test object, press the 'Y' key to indicate that YES you recognize the object to be in the same location, and press the 'N' key if you don't.&amp;#10;&amp;#10;Please respond as quickly and accurately as possible.&amp;#10;&amp;#10;&amp;#10;Press the spacebar to start practice trials" valType="str" updates="constant" name="text"/>
+        <Param val="We will repeat the practice trials one more time.&amp;#10;&amp;#10;Remember: You need to pay attention to both the identity of the objects and their locations during the 3-object sequence.&amp;#10;&amp;#10;When responding to the test object, press the Green key to indicate that you recognize the object to be in the same location, and press the Red key if you don't.&amp;#10;&amp;#10;Please respond as quickly and accurately as possible.&amp;#10;&amp;#10;&amp;#10;Press the green key to start practice trials" valType="str" updates="constant" name="text"/>
         <Param val="norm" valType="str" updates="None" name="units"/>
         <Param val="" valType="code" updates="None" name="validator"/>
         <Param val="1.8" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
       <KeyboardComponent name="key_practice_repeat" plugin="None">
-        <Param val="'space'" valType="list" updates="constant" name="allowedKeys"/>
+        <Param val="'1'" valType="list" updates="constant" name="allowedKeys"/>
         <Param val="" valType="str" updates="constant" name="correctAns"/>
         <Param val="" valType="str" updates="None" name="deviceLabel"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
@@ -1709,6 +1772,24 @@
         <Param val="False" valType="bool" updates="constant" name="storeCorrect"/>
         <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
       </KeyboardComponent>
+      <SoundComponent name="read_practice_repeat" plugin="None">
+        <Param val="" valType="str" updates="None" name="deviceLabel"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="True" valType="bool" updates="constant" name="hamming"/>
+        <Param val="read_practice_repeat" valType="code" updates="None" name="name"/>
+        <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="resource/instruct_practice_repeat.wav" valType="str" updates="set every repeat" name="sound"/>
+        <Param val="-1" valType="code" updates="None" name="speakerIndex"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.8" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="constant" name="stopWithRoutine"/>
+        <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
+        <Param val="1" valType="num" updates="constant" name="volume"/>
+      </SoundComponent>
       <CodeComponent name="skip_routine_check" plugin="None">
         <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
@@ -1766,7 +1847,7 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="How to Respond to a Test Object:&amp;#10;&amp;#10;If the test object is in the same location, press the 'Y' key to indicate that YES, the test object is in the same square as it was in the 3-object sequence.&amp;#10;&amp;#10;If the test object is NOT in the same location, press the 'N' key to indicate that NO, the test object is NOT in the same square as it was in the 3-object sequence." valType="str" updates="constant" name="text"/>
+        <Param val="How to Respond to a Test Object:&amp;#10;&amp;#10;If the test object is in the same location, press the Green key to indicate that YES, the test object is in the same square as it was in the 3-object sequence.&amp;#10;&amp;#10;If the test object is NOT in the same location, press the Red key to indicate that NO, the test object is NOT in the same square as it was in the 3-object sequence." valType="str" updates="constant" name="text"/>
         <Param val="norm" valType="str" updates="None" name="units"/>
         <Param val="" valType="code" updates="None" name="validator"/>
         <Param val="1.8" valType="num" updates="constant" name="wrapWidth"/>
@@ -1839,13 +1920,13 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="Press the spacebar to continue" valType="str" updates="constant" name="text"/>
+        <Param val="Press any of the white keys to continue" valType="str" updates="constant" name="text"/>
         <Param val="norm" valType="str" updates="None" name="units"/>
         <Param val="" valType="code" updates="None" name="validator"/>
         <Param val="1.8" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
       <KeyboardComponent name="key_diagram_condition" plugin="None">
-        <Param val="'space'" valType="list" updates="constant" name="allowedKeys"/>
+        <Param val="'3', '4', '5', '6'" valType="list" updates="constant" name="allowedKeys"/>
         <Param val="" valType="str" updates="constant" name="correctAns"/>
         <Param val="" valType="str" updates="None" name="deviceLabel"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
@@ -1864,6 +1945,24 @@
         <Param val="False" valType="bool" updates="constant" name="storeCorrect"/>
         <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
       </KeyboardComponent>
+      <SoundComponent name="read_instruct_intro_3" plugin="None">
+        <Param val="" valType="str" updates="None" name="deviceLabel"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="True" valType="bool" updates="constant" name="hamming"/>
+        <Param val="read_instruct_intro_3" valType="code" updates="None" name="name"/>
+        <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="resource/instruct_intro_3.wav" valType="str" updates="set every repeat" name="sound"/>
+        <Param val="-1" valType="code" updates="None" name="speakerIndex"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.8" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="constant" name="stopWithRoutine"/>
+        <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
+        <Param val="1" valType="num" updates="constant" name="volume"/>
+      </SoundComponent>
     </Routine>
   </Routines>
   <Flow>
